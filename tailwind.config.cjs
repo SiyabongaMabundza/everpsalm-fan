@@ -11,10 +11,11 @@ const config = {
     colors: {
       'primary': '#FF3E41', // orange
       'secondary': '#FCBF49', // yellow
-      'on-light-bg': '#FFF7E8', // off-white
+      'on-tinted-bg': '#FFF7E8', // off-white
+      'on-light-bg': '#564138', // brown
       'white-light-bg': '#FFF7E8', // off-white
-      'purple-light-bg': '#A7799D', // light purple
-      'green-light-bg': '#6E9887' // light green
+      'purple-tinted-bg': '#A7799D', // light purple
+      'green-tinted-bg': '#6E9887' // light green
     }
   },
 
