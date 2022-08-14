@@ -23,11 +23,12 @@
             showVolume={false}
             shuffle={false}
             showTrackNum={false}
+            color="#FFF7E8"
         />
     </div>
 </div>
 {:else}
-<div class="max-w-xs player-container border-solid border-1 border-on-tinted-bg p-4 rounded-lg text-on-light-bg">
+<div class="max-w-xs player-container border-solid border-[1px] border-on-tinted-bg p-4 rounded-lg text-on-light-bg">
     <div class="my-4 flex">
         <div class="max-w-[25%] mr-4 w-full">
             <img src={praiseCover} alt="praise cover" class="w-full h-auto rounded">
@@ -44,6 +45,7 @@
     showVolume={true}
     shuffle={false}
     showTrackNum={false}
+    color="#564138"
     />
 </div>
 {/if}
@@ -51,7 +53,7 @@
 <style>
     .player-container{
         background: rgb(255,247,232);
-        background: linear-gradient(23deg, rgba(255,247,232,0) 0%, rgba(255,247,232,1) 70%, rgba(255,247,232,1) 100%);
+        background: linear-gradient(23deg, rgba(255,247,232,.3) 0%, rgba(255,247,232,1) 100%);
     }
 
     .player button.play{

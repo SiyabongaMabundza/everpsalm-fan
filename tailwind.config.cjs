@@ -4,7 +4,7 @@ const config = {
   theme: {
     extend: {},
     fontFamily: {
-      // 'display1': ['"Kanisah"', 'serif'],
+      'display1': ['"kanisahregular"', 'serif'],
       'display2': ['"EB Garamond"', 'serif'],
       'body': ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
     },
