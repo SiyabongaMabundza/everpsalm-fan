@@ -31,7 +31,7 @@
     </div>
 </div>
 {:else}
-<div class="max-w-xs player-container border-solid border-[1px] border-on-tinted-bg p-4 rounded-lg text-on-light-bg">
+<div class="max-w-xs player-container border-solid border-[1px] border-on-tinted-bg p-4 rounded-3xl text-on-light-bg">
     <div class="my-4 flex">
         <div class="max-w-[25%] mr-4 w-full">
             <img src={praiseCover} alt="praise cover" class="w-full h-auto rounded">
