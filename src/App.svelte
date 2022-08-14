@@ -3,6 +3,6 @@
   import routes from './router';
 </script>
 
-<main>
+<main class="w-full overflow-x-hidden">
   <Router {routes}/>
 </main>

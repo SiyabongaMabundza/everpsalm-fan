@@ -4,16 +4,19 @@
     import praiseCover from '../assets/covers/praise.png';
 
     export let compactMode = false;
+    export let onDarkBackground = false;
 </script>
 
 {#if compactMode}
-<div class="flex items-center">
-    <div class="max-w-[3rem] w-full">
-        <img src={praiseCover} alt="praise cover" class="w-full h-auto rounded">
-    </div>
-    <div class="leading-7 mx-2">
-        <span class="font-body">Now playing</span><br>
-        <span class="h2 font-body">Psalm 137</span>
+<div class="sm:flex items-center">
+    <div class="flex items-center">
+        <div class="max-w-[3rem] w-full">
+            <img src={praiseCover} alt="praise cover" class="w-full h-auto rounded">
+        </div>
+        <div class="leading-7 mx-2">
+            <span class="font-body">Now playing</span><br>
+            <span class="h2 font-body">Psalm 137</span>
+        </div>
     </div>
     <div>
         <AudioPlayer 
@@ -23,7 +26,7 @@
             showVolume={false}
             shuffle={false}
             showTrackNum={false}
-            color="#FFF7E8"
+            color={onDarkBackground ? "#FFF7E8" : "#564138"}
         />
     </div>
 </div>
@@ -45,7 +48,7 @@
     showVolume={true}
     shuffle={false}
     showTrackNum={false}
-    color="#564138"
+    color={onDarkBackground ? "#FFF7E8" : "#564138"}
     />
 </div>
 {/if}
