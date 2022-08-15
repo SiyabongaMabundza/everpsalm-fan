@@ -9,6 +9,7 @@
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { onMount } from 'svelte';
+import Footer from '../lib/Footer.svelte';
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -265,5 +266,5 @@ As we continue to sing God's word, we hear more and more testimonies of the life
             </ul>
         </div>
     </section>
-
+    <Footer />
 </div>
