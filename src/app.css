@@ -20,4 +20,17 @@
         font-weight: bold;
         font-size: 1.5rem;
     }
+    .h1{
+        font-weight: bold;
+        font-size: 2.5rem;
+    }
+
+    .text-on-light-outline-primary{
+        color: #FFF7E8;
+        text-shadow:
+        -1px -1px 0 #FF3E41,  
+            1px -1px 0 #FF3E41,
+            -1px 1px 0 #FF3E41,
+            1px 1px 0 #FF3E41;
+    }
 }
