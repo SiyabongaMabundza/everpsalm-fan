@@ -54,7 +54,7 @@ import { onMount } from 'svelte';
             opacity: 1
         });
 
-        document.querySelectorAll('.benefits-item').forEach(item=>{
+        document.querySelectorAll('.fade-in-down').forEach(item=>{
             gsap.fromTo(item,{
                 y: -20,
                 opacity: 0
@@ -64,6 +64,20 @@ import { onMount } from 'svelte';
                     start: 'bottom bottom'
                 },
                 y: 0,
+                opacity: 1
+            });
+        });
+        document.querySelectorAll('.fade-in-right-staggered').forEach(item=>{
+            gsap.fromTo(item,{
+                x: -20,
+                opacity: 0
+            },{
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'bottom bottom'
+                },
+                stagger: .2,
+                x: 0,
                 opacity: 1
             });
         });
@@ -195,7 +209,7 @@ import { onMount } from 'svelte';
             </div>
             <div class="md:max-w-sm flex flex-col justify-between">
                 {#each benefits as benefit}
-                <article class="text-center md:text-start benefits-item my-4">
+                <article class="text-center md:text-start fade-in-down my-4">
                     <h3 class="h2">{benefit.title}</h3>
                     <p>{benefit.content}</p>
                 </article>
@@ -223,15 +237,17 @@ As we continue to sing God's word, we hear more and more testimonies of the life
     </section>
     <section class="mx-auto container text-on-light-bg px-4 py-10">
         <h2 class="text-center h2">Explore the songs</h2>
-        <div class="md:flex mt-4">
-            <p class="max-w-sm md:mr-8">
-                This is a fan website, made to help you explore the songs from EveryPsalm and learn more about the Psalms they express.
-<br><br>
-Choose a playlist to start exploring!
-            </p>
+        <div class="md:flex justify-center mt-4">
+            <div class="max-w-sm md:mr-8">
+                <p class=" fade-in-down">
+                    This is a fan website, made to help you explore the songs from EveryPsalm and learn more about the Psalms they express.
+    <br><br>
+    Choose a playlist to start exploring!
+                </p>
+            </div>
             <ul class="mt-4 md:mt-0">
                 {#each playlistPreviews as playlist}  
-                <li class="my-1">
+                <li class="my-1 fade-in-right-staggered">
                     <a href="#" class="flex justify-between items-center group py-3">
                         <div class="flex mr-4">
                         <svg width="61" height="27" viewBox="0 0 61 27" fill="none" xmlns="http://www.w3.org/2000/svg"
