@@ -11,18 +11,38 @@
 
 @tailwind base;
 
+@layer base {
+    body {
+      @apply text-body;
+    }
+  
+    @screen lg {
+      body {
+        @apply text-body-lg;
+      }
+    }
+}
+
 @tailwind components;
 
 @tailwind utilities;
 
 @layer utilities {
     .h2{
-        font-weight: bold;
-        font-size: 1.5rem;
+        @apply text-h2 font-bold;
+    }
+    @screen lg {
+        .h2 {
+          @apply text-h2-lg;
+        }
     }
     .h1{
-        font-weight: bold;
-        font-size: 2.5rem;
+        @apply text-h1 font-bold font-display1;
+    }
+    @screen lg {
+        .h1 {
+          @apply text-h1-lg;
+        }
     }
 
     .text-on-light-outline-primary{

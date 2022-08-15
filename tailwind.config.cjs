@@ -2,7 +2,16 @@ const config = {
   content: ["./src/**/*.{html,js,svelte,ts}"],
 
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        'body': '.875rem',
+        'body-lg': '1rem',
+        'h2': '1.25rem',
+        'h2-lg': '1.5rem',
+        'h1': '2rem',
+        'h1-lg': '2.5rem',
+      }
+    },
     fontFamily: {
       'display1': ['"kanisahregular"', 'serif'],
       'display2': ['"EB Garamond"', 'serif'],

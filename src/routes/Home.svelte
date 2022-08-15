@@ -4,6 +4,69 @@
     import introVideo from '../assets/videos/intro-video.mp4';
     import introVideoPoster from '../assets/images/couple-seated-at-piano-singing.png';
     import benefitsCollageImage from '../assets/images/benefits-collage.png';
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onMount } from 'svelte';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    onMount(()=>{
+        gsap.to('#movingProgressLabel1',{
+            scrollTrigger: {
+                trigger: '#movingProgressLabel1',
+                start: 'bottom bottom',
+                end: 'bottom top',
+                scrub: 1,
+            },
+            xPercent: -100,
+        });
+        gsap.to('#movingProgressLabel2',{
+            scrollTrigger: {
+                trigger: '#movingProgressLabel2',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1,
+            },
+            xPercent: 100,
+        });
+        gsap.fromTo('#audienceStatsContainer',{
+            y: -20,
+            opacity: 0
+        },{
+            scrollTrigger: {
+                trigger: '#movingProgressLabel1',
+                start: 'bottom center',
+            },
+            y: 0,
+            opacity: 1
+        });
+        gsap.fromTo('#progressTitle',{
+            y: 20,
+            opacity: 0
+        },{
+            scrollTrigger: {
+                trigger: '#movingProgressLabel1',
+                start: 'bottom center',
+            },
+            y: 0,
+            opacity: 1
+        });
+
+        document.querySelectorAll('.benefits-item').forEach(item=>{
+            gsap.fromTo(item,{
+                y: -20,
+                opacity: 0
+            },{
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'bottom bottom'
+                },
+                y: 0,
+                opacity: 1
+            });
+        });
+
+    });
 
     let features = [
         {
@@ -68,15 +131,15 @@
             </div>
             <div class="container px-4 max-w-4xl mx-auto text-on-tinted-bg flex items-center grow">
                 
-                    <div class="md:flex">
-                        <div class="max-w-md mr-4">
-                            <h1 class="font-display1 text-5xl">A song for every Psalm</h1>
-                            <p>Psalms is a book in the Bible composed of sacred songs/poems meant to be sung. EveryPsalm is Poor Bishop Hooper’s project where the duet creates songs heavily inspired by every Psalm, and releases that music for free.</p>
-                        </div>
-                        <div class="mt-8 md:mt-0 ">
-                            <MusicPlayer onDarkBackground={false}/>
-                        </div>
+                <div class="md:flex">
+                    <div class="max-w-md mr-4">
+                        <h1 class="font-display1 text-5xl">A song for every Psalm</h1>
+                        <p>Psalms is a book in the Bible composed of sacred songs/poems meant to be sung. EveryPsalm is Poor Bishop Hooper’s project where the duet creates songs heavily inspired by every Psalm, and releases that music for free.</p>
                     </div>
+                    <div class="mt-8 md:mt-0 ">
+                        <MusicPlayer onDarkBackground={false}/>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -90,32 +153,32 @@
         </dl>
         {/each}
     </section>
-    <section class="text-on-light-bg">
+    <section class="text-on-light-bg my-24">
         <div class="mx-auto w-fit">
             <h2 class="font-bold uppercase text-center">Progress</h2>
-            <span class="h1 font-display1">We are breaking new grounds</span>
+            <div id="progressTitle" class="h1 text-center">We are breaking new grounds</div>
         </div>
-        <div class="font-display2 text-on-light-outline-primary text-9xl uppercase whitespace-nowrap">
-            134 weeks of recording
+        <div id="movingProgressLabel1" class="font-display2 text-on-light-outline-primary text-7xl md:text-8xl lg:text-9xl uppercase whitespace-nowrap">
+            134 weeks of recording - 134 weeks of recording - 134 weeks of recording
         </div>
-        <div class="font-display2 text-primary text-9xl uppercase whitespace-nowrap">
-            136/150 Psalms sung 
+        <div id="movingProgressLabel2" class="font-display2 text-primary text-7xl md:text-8xl lg:text-9xl uppercase whitespace-nowrap translate-x-[-100%]">
+            136/150 Psalms sung - 136/150 Psalms sung - 136/150 Psalms sung
         </div>
-        <ul class="flex justify-between max-w-4xl mx-auto px-8 flex-wrap my-8">
+        <ul id="audienceStatsContainer" class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto px-8 flex-wrap my-8">
             {#each audienceStats as stat}
-            <li class="flex flex-col items-center"><span class="text-4xl font-display1">{stat.number}</span> {stat.description}</li>
+            <li class="flex flex-col items-center text-center"><span class="text-h1 md:text-h1-lg font-display1">{stat.number}</span> {stat.description}</li>
             {/each}
         </ul>
     </section>
-    <section class="text-on-light-bg max-w-4xl container mx-auto my-16">
-        <h2 class="h1 font-display1 w-full text-center mb-4">Get to know the Psalms</h2>
-        <div class="flex">
-            <div class="flex-grow mr-6">
+    <section class="text-on-light-bg max-w-4xl container mx-auto my-16 px-4">
+        <h2 class="h1 w-full text-center mb-4">Get to know the Psalms</h2>
+        <div class="md:flex">
+            <div class="hidden md:block md:flex-grow mr-6">
                 <img src={benefitsCollageImage} alt="">
             </div>
-            <div class="max-w-sm flex flex-col justify-between">
+            <div class="md:max-w-sm flex flex-col justify-between">
                 {#each benefits as benefit}
-                <article>
+                <article class="text-center md:text-start benefits-item my-4">
                     <h3 class="h2">{benefit.title}</h3>
                     <p>{benefit.content}</p>
                 </article>
