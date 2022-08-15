@@ -4,6 +4,8 @@
     import introVideo from '../assets/videos/intro-video.mp4';
     import introVideoPoster from '../assets/images/couple-seated-at-piano-singing.png';
     import benefitsCollageImage from '../assets/images/benefits-collage.png';
+    import widePianoShotImage from '../assets/images/wide-piano-shot.png';
+
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { onMount } from 'svelte';
@@ -116,6 +118,21 @@ import { onMount } from 'svelte';
             content: 'The bible tells us to sing psalms. “Speak to one another with psalms, hymns, and spiritual songs. Sing and make music in your heart to the Lord.”(Ephesians 5:19). The psalms are one way we build one another up, by speaking to one another in song. We are called also to sing to God himself from the center of our being, with our whole self.'
         },
     ];
+
+    let playlistPreviews = [
+        {
+            name: "Kingship Psalms about Jesus",
+            includedPsalms: ["2","23","90"]
+        },
+        {
+            name: "Praise Psalms for dancing",
+            includedPsalms: ["3","14","19"]
+        },
+        {
+            name: "Confidence Psalms about Zion for rest",
+            includedPsalms: ["3","14","19"]
+        },
+    ];
 </script>
 
 
@@ -186,4 +203,51 @@ import { onMount } from 'svelte';
             </div>
         </div>
     </section>
+    <section class="relative">
+        <img src={widePianoShotImage} alt="" class="absolute w-full h-full object-cover z-0">
+        <div class="absolute top-0 bottom-0 left-0 right-0 bg-[rgba(0,0,0,.3)] z-10"></div>
+        <div class="flex items-center justify-center relative z-20">
+            <div class="max-w-sm mx-8 my-8 text-on-tinted-bg">
+                <p class="text-center">
+                    We are delighted to share all of the music of EveryPsalm for free, and have been amazed at the impact the songs have had on individuals around the world.
+<br><br>
+As we continue to sing God's word, we hear more and more testimonies of the life-giving fruit of this marriage of music and scripture.
+<br><br>
+<strong>Please consider partnering with us so we can see this 3-year journey to completion!</strong>
+                </p>
+                <div class="mt-4 w-full text-center">
+                    <button class="bg-primary font-bold px-4 py-2 text-on-tinted-bg">Support us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mx-auto container text-on-light-bg px-4 py-10">
+        <h2 class="text-center h2">Explore the songs</h2>
+        <div class="md:flex mt-4">
+            <p class="max-w-sm md:mr-8">
+                This is a fan website, made to help you explore the songs from EveryPsalm and learn more about the Psalms they express.
+<br><br>
+Choose a playlist to start exploring!
+            </p>
+            <ul class="mt-4 md:mt-0">
+                {#each playlistPreviews as playlist}  
+                <li class="my-1">
+                    <a href="#" class="flex justify-between items-center group py-3">
+                        <div class="flex mr-4">
+                        <svg width="61" height="27" viewBox="0 0 61 27" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="group-hover:translate-x-3 transition-transform delay-75 ease-in-out min-w-[61px]">
+                            <line y1="13.5" x2="46" y2="13.5" stroke="#564138" stroke-width="3"/>
+                            <path d="M60 13.5C55.8333 12.8333 47 9.4 45 1" stroke="#564138" stroke-width="3"/>
+                            <path d="M60 14C55.8333 14.6667 47 18.1 45 26.5" stroke="#564138" stroke-width="3"/>
+                        </svg>
+                            <p class="ml-4 group-hover:text-primary transition-colors delay-100 ease-in-out">{playlist.name}</p>
+                        </div>
+                        <small>Including Psalms {playlist.includedPsalms.join(', ')}</small>
+                    </a>
+                </li>
+                {/each}
+            </ul>
+        </div>
+    </section>
+
 </div>
