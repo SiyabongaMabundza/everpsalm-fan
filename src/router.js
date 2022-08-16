@@ -1,4 +1,5 @@
 import Home from './routes/Home.svelte'
+import More from './routes/More.svelte';
 // import Author from './routes/Author.svelte'
 // import Book from './routes/Book.svelte'
 // import NotFound from './routes/NotFound.svelte'
@@ -6,6 +7,7 @@ import Home from './routes/Home.svelte'
 const routes = {
     // Exact path
     '/': Home,
+    '/more': More,
 
     // Using named parameters, with last being optional
     // '/author/:first/:last?': Author,

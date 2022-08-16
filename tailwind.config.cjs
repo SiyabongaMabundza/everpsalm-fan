@@ -21,6 +21,7 @@ const config = {
       'primary': '#FF3E41', // orange
       'secondary': '#FCBF49', // yellow
       'on-tinted-bg': '#FFF7E8', // off-white
+      'on-tinted-bg-translucent': 'rgba(255,247,232,.3)', // off-white transparent
       'on-light-bg': '#564138', // brown
       'white-light-bg': '#FFF7E8', // off-white
       'purple-tinted-bg': '#A7799D', // light purple

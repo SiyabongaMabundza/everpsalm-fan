@@ -159,7 +159,7 @@ import Footer from '../lib/Footer.svelte';
         </video>
         <div class="z-10 relative h-full flex flex-col">
             <div class="flex-none">
-                <TopNav />
+                <TopNav onDarkBackground={true}/>
             </div>
             <div class="container px-4 max-w-4xl mx-auto text-on-tinted-bg flex items-center grow">
                 

@@ -7,6 +7,7 @@
   import MusicPlayer from "./MusicPlayer.svelte";
   import {getStore as getScrollEventStore} from './scrollEventStore';
 
+  export let onDarkBackground = false;
   const navItems = [
     {
       displayName: "Home",
@@ -44,9 +45,9 @@
     else showTopNavBackground = true;
   });
 
-  $: textHightlightColorClass = (showTopNavBackground ? 'text-primary' : 'text-secondary');
-  $: onBgColor = (showTopNavBackground ? 'on-light-bg' : 'on-tinted-bg');
-  $: onBgColorClass = (showTopNavBackground ? 'text-on-light-bg' : 'text-on-tinted-bg');
+  $: textHightlightColorClass = (showTopNavBackground||!onDarkBackground ? 'text-primary' : 'text-secondary');
+  $: onBgColor = (showTopNavBackground||!onDarkBackground ? 'on-light-bg' : 'on-tinted-bg');
+  $: onBgColorClass = (showTopNavBackground||!onDarkBackground ? 'text-on-light-bg' : 'text-on-tinted-bg');
   $: bgColorClass = (showTopNavBackground ? 'bg-white-light-bg' : '');
 </script>
 
@@ -55,14 +56,14 @@
   <div>
     <a href={navItems[0].href}>
       <img
-        src={showTopNavBackground? siteLogoOnLight : siteLogoOnDark}
+        src={showTopNavBackground||!onDarkBackground? siteLogoOnLight : siteLogoOnDark}
         alt="EveryPsalm: An Unofficial fan website"
         class="max-w-[10rem]"
       />
     </a>
   </div>
   <div class="hidden lg:block">
-    <MusicPlayer compactMode={true} onDarkBackground={showTopNavBackground?false:true} />
+    <MusicPlayer compactMode={true} onDarkBackground={showTopNavBackground||!onDarkBackground?false:true} />
   </div>
   <div class="hidden lg:block font-body">
     <ul class="h-full flex items-stretch">
