@@ -1,56 +1,36 @@
 <script>
-    // TODO: Delete and run "npm uninstall svelte-mp3" to remove dependency
-    import {AudioPlayer} from 'svelte-mp3';
-    import song1 from '../assets/temp/Psalm137.mp3';
-    import praiseCover from '../assets/covers/praise.png';
+    import player from "./player";
+    import PlayControls from './PlayControls.svelte';
 
-    export let compactMode = false;
     export let onDarkBackground = false;
-</script>
+    export let compactMode = false;
 
+</script>
 {#if compactMode}
 <div class="sm:flex items-center">
     <div class="flex items-center">
         <div class="max-w-[3rem] w-full">
-            <img src={praiseCover} alt="praise cover" class="w-full h-auto rounded">
+            <img src='/site-assets/covers/praise.png' alt="praise cover" class="w-full h-auto rounded">
         </div>
         <div class="leading-7 mx-2">
             <span class="font-body">Now playing</span><br>
             <span class="h2 font-body">Psalm 137</span>
         </div>
     </div>
-    <div>
-        <AudioPlayer 
-            urls={[song1]}
-            showTime={false}
-            showShuffle={false}
-            showVolume={false}
-            shuffle={false}
-            showTrackNum={false}
-            color={onDarkBackground ? "#FFF7E8" : "#564138"}
-        />
-    </div>
+    <PlayControls {onDarkBackground}/>
 </div>
 {:else}
 <div class="max-w-xs player-container border-solid border-[1px] border-on-tinted-bg p-4 rounded-3xl text-on-light-bg">
     <div class="my-4 flex">
         <div class="max-w-[25%] mr-4 w-full">
-            <img src={praiseCover} alt="praise cover" class="w-full h-auto rounded">
+            <img src='/site-assets/covers/praise.png' alt="praise cover" class="w-full h-auto rounded">
         </div>
         <div>
             <span class="font-body">Now playing</span><br>
             <span class="h2 font-body">Psalm 137</span>
         </div>
     </div>
-    <AudioPlayer 
-    urls={[song1]}
-    showTime={false}
-    showShuffle={false}
-    showVolume={true}
-    shuffle={false}
-    showTrackNum={false}
-    color={onDarkBackground ? "#FFF7E8" : "#564138"}
-    />
+    <PlayControls {onDarkBackground} showProgress={true}/>
 </div>
 {/if}
 
