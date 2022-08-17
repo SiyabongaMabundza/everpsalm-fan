@@ -7,8 +7,16 @@
   // import MusicPlayer from "./MusicPlayer.svelte";
   import MusicPlayerWidget from './MusicPlayer/Widget.svelte';
   import {getStore as getScrollEventStore} from './scrollEventStore';
+  import { onMount } from "svelte";
 
   export let onDarkBackground = false;
+  export let hideOnScollDown = true;
+
+  let topNavElement = null;
+  let topNavHeight = 0; // used to reserve the space this component would've taken if it wasn't position: fixed
+  onMount(()=>{
+    if(topNavElement) topNavHeight = topNavElement.offsetHeight;
+  });
   const navItems = [
     {
       displayName: "Home",
@@ -37,6 +45,8 @@
 
   let showTopNavBasedOnScrollPosition = true;
   let showTopNavBackground = false;
+
+  if(hideOnScollDown)
   getScrollEventStore().subscribe(val=>{ //TODO: unsubscibe onDestroy
     // console.log('scroll: ', val)
     if(val.includes('isGoingDown') && !val.includes('atTop')) showTopNavBasedOnScrollPosition = false;
@@ -52,8 +62,10 @@
   $: bgColorClass = (showTopNavBackground ? 'bg-white-light-bg' : '');
 </script>
 
+<div style={`height: ${topNavHeight}px`}></div>
+
 {#if showTopNavBasedOnScrollPosition}
-<nav transition:fly={{ y: -20, duration: 500 }}  class={"flex justify-between px-4 py-1 items-stretch fixed top-0 left-0 right-0 z-30 "+onBgColorClass+" "+bgColorClass}>
+<nav transition:fly={{ y: -20, duration: 500 }} bind:this={topNavElement}  class={"flex justify-between px-4 py-1 items-stretch fixed top-0 left-0 right-0 z-30 "+onBgColorClass+" "+bgColorClass}>
   <div>
     <a href={navItems[0].href}>
       <img

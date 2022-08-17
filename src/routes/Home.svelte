@@ -55,7 +55,7 @@ import Footer from '../lib/Footer.svelte';
             opacity: 1
         });
 
-        document.querySelectorAll('.fade-in-down').forEach(item=>{
+        gsap.utils.toArray('.fade-in-down').forEach(item=>{
             gsap.fromTo(item,{
                 y: -20,
                 opacity: 0
@@ -68,7 +68,7 @@ import Footer from '../lib/Footer.svelte';
                 opacity: 1
             });
         });
-        document.querySelectorAll('.fade-in-right-staggered').forEach(item=>{
+        gsap.utils.toArray('.fade-in-right-staggered').forEach(item=>{
             gsap.fromTo(item,{
                 x: -20,
                 opacity: 0
