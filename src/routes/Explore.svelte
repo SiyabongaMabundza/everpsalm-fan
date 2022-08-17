@@ -2,5 +2,11 @@
     import MusicPlayerWidget from "../lib/MusicPlayer/Widget.svelte";
 </script>
 
-<MusicPlayerWidget songs={[]}/>
-<MusicPlayerWidget songs={[]} compactMode={true}/>
+<div class="bg-purple-tinted-bg">
+    
+    <MusicPlayerWidget songs={[]}/>
+    <MusicPlayerWidget songs={[]} onDarkBackground={true}/>
+    <MusicPlayerWidget songs={[]} compactMode={true}/>
+    <MusicPlayerWidget songs={[]} compactMode={true} onDarkBackground={true}/>
+
+</div>

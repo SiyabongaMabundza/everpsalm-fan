@@ -5,6 +5,7 @@
     export let onDarkBackground = false;
     export let compactMode = false;
 
+    $: fontColorClass = onDarkBackground ? 'text-on-tinted-bg' : 'text-on-light-bg';
 </script>
 {#if compactMode}
 <div class="sm:flex items-center">
@@ -12,7 +13,7 @@
         <div class="max-w-[3rem] w-full">
             <img src='/site-assets/covers/praise.png' alt="praise cover" class="w-full h-auto rounded">
         </div>
-        <div class="leading-7 mx-2">
+        <div class={"leading-7 mx-2 "+fontColorClass}>
             <span class="font-body">Now playing</span><br>
             <span class="h2 font-body">Psalm 137</span>
         </div>
@@ -30,7 +31,7 @@
             <span class="h2 font-body">Psalm 137</span>
         </div>
     </div>
-    <PlayControls {onDarkBackground} showProgress={true}/>
+    <PlayControls showProgress={true}/>
 </div>
 {/if}
 
