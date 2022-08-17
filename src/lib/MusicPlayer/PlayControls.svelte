@@ -14,12 +14,12 @@
     player.pause();
   }
 
-  let controlsColor = onDarkBackground ? "#FFF7E8" : "#564138";
+  $: controlsColor = onDarkBackground ? "#FFF7E8" : "#564138";
 </script>
 
 {#if showProgress}
 <div class="mx-4 my-2 h-2 bg-[#8B6555] rounded-full">
-  <div class="h-2 w-0 bg-secondary rounded-full" style={`width: ${$playerProgressStore.percentProgress}%`}></div>
+  <div class="h-2 w-0 bg-on-tinted-bg rounded-full" style={`width: ${$playerProgressStore.percentProgress}%`}></div>
 </div>
 {/if}
 

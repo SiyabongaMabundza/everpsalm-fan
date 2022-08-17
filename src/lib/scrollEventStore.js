@@ -52,7 +52,7 @@ export function getStore(options=null){
         //TODO: implement trackElement feature
       }
 
-      console.log('scroll events: ', events)
+      // console.log('scroll events: ', events)
       scrollStore.set(events);
     });
 

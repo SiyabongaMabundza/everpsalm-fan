@@ -4,7 +4,8 @@
   import { link, location } from "svelte-spa-router";
   import { fly, fade } from 'svelte/transition';
   import active from "svelte-spa-router/active";
-  import MusicPlayer from "./MusicPlayer.svelte";
+  // import MusicPlayer from "./MusicPlayer.svelte";
+  import MusicPlayerWidget from './MusicPlayer/Widget.svelte';
   import {getStore as getScrollEventStore} from './scrollEventStore';
 
   export let onDarkBackground = false;
@@ -36,8 +37,8 @@
 
   let showTopNavBasedOnScrollPosition = true;
   let showTopNavBackground = false;
-  getScrollEventStore().subscribe(val=>{
-    console.log('scroll: ', val)
+  getScrollEventStore().subscribe(val=>{ //TODO: unsubscibe onDestroy
+    // console.log('scroll: ', val)
     if(val.includes('isGoingDown') && !val.includes('atTop')) showTopNavBasedOnScrollPosition = false;
     else if(val.includes('isGoingUp')) showTopNavBasedOnScrollPosition = true;
 
@@ -63,7 +64,8 @@
     </a>
   </div>
   <div class="hidden lg:block">
-    <MusicPlayer compactMode={true} onDarkBackground={showTopNavBackground||!onDarkBackground?false:true} />
+    <!-- <MusicPlayer compactMode={true} onDarkBackground={showTopNavBackground||!onDarkBackground?false:true} /> -->
+    <MusicPlayerWidget compactMode={true} onDarkBackground={(showTopNavBackground||!onDarkBackground)?false:true} />
   </div>
   <div class="hidden lg:block font-body">
     <ul class="h-full flex items-stretch">
@@ -105,7 +107,8 @@
         </ul>
         <div transition:fly={{ y: 20, duration: 500, delay: 100*(navItems.length+1) }}
         class="w-full my-4 flex justify-center">
-          <MusicPlayer compactMode={true} onDarkBackground={false}/>
+          <!-- <MusicPlayer compactMode={true} onDarkBackground={false}/> -->
+          <MusicPlayerWidget compactMode={true} onDarkBackground={false}/>
         </div>
       </div>
     {/if}
