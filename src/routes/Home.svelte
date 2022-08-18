@@ -1,6 +1,7 @@
 <script>
     import TopNav from '../lib/TopNav.svelte';
-    import MusicPlayer from '../lib/MusicPlayer.svelte';
+    // import MusicPlayer from '../lib/MusicPlayer.svelte';
+    import MusicPlayerWidget from '../lib/MusicPlayer/Widget.svelte';
     import introVideo from '../assets/videos/intro-video.mp4';
     import introVideoPoster from '../assets/images/couple-seated-at-piano-singing.png';
     import benefitsCollageImage from '../assets/images/benefits-collage.png';
@@ -169,7 +170,7 @@ import Footer from '../lib/Footer.svelte';
                         <p>Psalms is a book in the Bible composed of sacred songs/poems meant to be sung. EveryPsalm is Poor Bishop Hooper’s project where the duet creates songs heavily inspired by every Psalm, and releases that music for free.</p>
                     </div>
                     <div class="mt-8 md:mt-0 ">
-                        <MusicPlayer onDarkBackground={false}/>
+                        <MusicPlayerWidget onDarkBackground={false}/>
                     </div>
                 </div>
             </div>
