@@ -7,8 +7,9 @@
 
     let currentSongStore = player.getCurrentSongStore();
 
-    function getCoverImageUrl(psalmCategory){
-        return `/site-assets/covers/${psalmCategory}.jpeg`
+    function getCoverImageUrl(psalmNumber,psalmCategory){
+        let name = psalmNumber==119 ? 'psalm119' : psalmCategory;
+        return `/site-assets/covers/${name}.jpeg`
     }
 
     $: fontColorClass = onDarkBackground ? 'text-on-tinted-bg' : 'text-on-light-bg';
@@ -17,7 +18,7 @@
 <div class="sm:flex items-center">
     <div class="flex items-center">
         <div class="max-w-[3rem] w-full">
-            <img src={getCoverImageUrl($currentSongStore.info.category)} alt="praise cover" class="w-full h-auto rounded">
+            <img src={getCoverImageUrl($currentSongStore.info['psalm-number'],$currentSongStore.info.category)} alt="praise cover" class="w-full h-auto rounded">
         </div>
         <div class={"leading-7 mx-2 "+fontColorClass}>
             <span class="font-body">Now playing</span><br>
