@@ -1,8 +1,9 @@
 <script>
     import TopNav from "../lib/TopNav.svelte";
+    import SongsFilterWidget from "../lib/SongsFilter/Widget.svelte"
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { onMount } from "svelte";
+    import { onMount } from "svelte";
     gsap.registerPlugin(ScrollTrigger);
 
     let psalms = [
@@ -79,8 +80,8 @@ import { onMount } from "svelte";
 
     <div class="container mx-auto max-w-6xl flex flex-col flex-grow px-4">
         <h1 class="font-bold">Explore EveryPsalm</h1>
-        <div>
-            Thanksgiving Psalms about Jesus for anything
+        <div class="my-2">
+            <SongsFilterWidget />
         </div>
         <h1 class="font-display2 text-4xl">Thanksgiving Psalms about Jesus</h1>
         <!-- <div class="w-full overflow-hidden"> -->
