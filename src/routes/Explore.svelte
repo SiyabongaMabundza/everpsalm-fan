@@ -55,13 +55,12 @@ import { onMount } from "svelte";
                 scrub: true,
                 // markers: true,
                 end: ()=>psalmsContainer.offsetWidth,
-                pin: true
+                pin: true,
+                invalidateOnRefresh: true,
             },
             x: ()=>-(psalmsContainer.getBoundingClientRect().right-window.innerWidth),
             ease: "none",
-            scrub: true,
-            pin: true,
-            invalidateOnRefresh: true,
+            
         });
     });
 
