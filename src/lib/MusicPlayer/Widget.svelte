@@ -7,8 +7,8 @@
 
     let currentSongStore = player.getCurrentSongStore();
 
-    function getCoverImageUrl(psalmNumber,psalmCategory){
-        let name = psalmNumber==119 ? 'psalm119' : psalmCategory;
+    function getCoverImageUrl(info){
+        let name = info['psalm-number']==119 ? 'psalm119' : info.category;
         return `/site-assets/covers/${name}.jpeg`
     }
 
@@ -18,7 +18,7 @@
 <div class="sm:flex items-center">
     <div class="flex items-center">
         <div class="max-w-[3rem] w-full">
-            <img src={getCoverImageUrl($currentSongStore.info['psalm-number'],$currentSongStore.info.category)} alt="praise cover" class="w-full h-auto rounded">
+            <img src={getCoverImageUrl($currentSongStore.info)} alt="praise cover" class="w-full h-auto rounded">
         </div>
         <div class={"leading-7 mx-2 "+fontColorClass}>
             <span class="font-body">Now playing</span><br>
@@ -31,7 +31,7 @@
 <div class="max-w-xs player-container border-solid border-[1px] border-on-tinted-bg p-4 rounded-3xl text-on-light-bg">
     <div class="my-4 flex">
         <div class="max-w-[25%] mr-4 w-full">
-            <img src={getCoverImageUrl($currentSongStore.info.category)} alt="praise cover" class="w-full h-auto rounded">
+            <img src={getCoverImageUrl($currentSongStore.info)} alt="praise cover" class="w-full h-auto rounded">
         </div>
         <div>
             <span class="font-body">Now playing</span><br>
